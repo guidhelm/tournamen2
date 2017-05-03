@@ -43,3 +43,11 @@ gulp.task("libs", function () {
 gulp.task("default", ['resources', 'libs'], function () {
     console.log("Building the project ...");
 });
+
+var gulp = require('gulp');
+var webpack = require('webpack-stream');
+gulp.task('default', function() {
+  return gulp.src('build/app/main.js')
+    .pipe(webpack())
+    .pipe(gulp.dest('dist/'));
+});
